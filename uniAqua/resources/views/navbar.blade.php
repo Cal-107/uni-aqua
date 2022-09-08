@@ -14,10 +14,10 @@
                     <a class="nav-link active" aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Degree Course</a>
+                    <a class="nav-link active" aria-current="page" href="{{ route('course.index') }}">Courses Course</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Students</a>
+                    <a class="nav-link active" aria-current="page" href="{{ route('student.index') }}">Students</a>
                 </li>
             </ul>
         </div>
