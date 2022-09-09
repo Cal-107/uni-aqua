@@ -15,8 +15,8 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $courses = Course::all();
         $students = Student::all();
+        $courses = Course::with('students')->get();
         return view('courses.index', compact('courses', 'students'));
     }
 

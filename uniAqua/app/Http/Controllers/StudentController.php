@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use App\Models\Course;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -14,8 +15,17 @@ class StudentController extends Controller
      */
     public function index()
     {
+        // $students = Student::with('course')->get();
+        $courses = Course::all();
         $students = Student::with('course')->get();
-        return view('students.index', compact('students'));
+        return view('students.index', compact('students', 'courses'));
+    }
+
+    public function getCourses($id){
+        $courses = Course::all();
+        $students = Student::where('course_id', '=', $id)->get();
+
+        return view('students.index', compact('students', 'courses'));
     }
 
     /**

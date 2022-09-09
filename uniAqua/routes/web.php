@@ -13,3 +13,5 @@ Route::resource('course', CourseController::class);
 
 // Route for 'Students'
 Route::resource('student', StudentController::class);
+
+Route::get('student/filter/{id}', [StudentController::class, 'getCourses'])->name('getCourses');

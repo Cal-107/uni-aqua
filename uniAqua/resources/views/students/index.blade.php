@@ -11,6 +11,22 @@
                     Add Player
                 </button>
             </a>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                  Filter Students By Course
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                    @foreach($courses as $course)
+                    <li>
+                        <a href="{{ route('getCourses', $course->id) }}">
+                            <button type="button" class="btn btn-outline-light">
+                                {{ $course->name }}
+                            </button>
+                        </a>
+                    </li>
+                    @endforeach
+                </ul>
+              </div>
         </div>
         <table class="table table-success col-6 text-center table-striped table-hover border border-success">
             <thead>
@@ -18,8 +34,8 @@
                     <th scope="col">Firstname</th>
                     <th scope="col">Lastname</th>
                     <th scope="col">Profile</th>
-                    <th scope="col">Delete Passenger</th>
-                    <th scope="col">Edit Passenger</th>
+                    <th scope="col">Delete Students</th>
+                    <th scope="col">Edit Student</th>
                 </tr>
             </thead>
             <tbody>
