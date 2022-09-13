@@ -35,7 +35,9 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view('students.create');
+        $students = Student::all();
+        $courses = Course::all();
+        return view('students.create', compact('students', 'courses'));
     }
 
     /**
@@ -50,6 +52,7 @@ class StudentController extends Controller
             'firstname' => 'required|min: 3',
             'lastname' => 'required',
             'birthdate' => 'required',
+            'gender' => 'nullable',
             'course_id' => 'nullable',
         ]);
 
@@ -57,6 +60,7 @@ class StudentController extends Controller
         $student->firstname = $request->firstname;
         $student->lastname = $request->lastname;
         $student->birthdate = $request->birthdate;
+        $student->gender = $request->gender;
         $student->course_id = $request->course_id;
 
         $student->save();
@@ -83,7 +87,8 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        return view('students.edit', compact('student'));
+        $courses = Course::all();
+        return view('students.edit', compact('student', 'courses'));
     }
 
     /**
@@ -93,7 +98,7 @@ class StudentController extends Controller
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Student $student)
+    public function update(Request $request, Student $student, Course $course)
     {
         $student->fill($request->all());
         $student->save();

@@ -11,15 +11,15 @@
                     Add Player
                 </button>
             </a>
-            <div class="dropdown">
+            <div class="dropdown mt-3">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
                   Filter Students By Course
                 </button>
-                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                <ul class="mt-2 dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
                     @foreach($courses as $course)
-                    <li>
+                    <li class="text-center">
                         <a href="{{ route('getCourses', $course->id) }}">
-                            <button type="button" class="btn btn-outline-light">
+                            <button type="button" class="btn btn-outline-light border-0">
                                 {{ $course->name }}
                             </button>
                         </a>
